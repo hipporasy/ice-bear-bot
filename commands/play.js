@@ -9,7 +9,7 @@ module.exports = {
   description: "Play a song in your channel!",
   async execute(message) {
     try {
-      const args = message.content.split(" ");
+
       const queue = message.client.queue;
       const serverQueue = message.client.queue.get(message.guild.id);
 

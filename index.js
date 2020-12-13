@@ -31,6 +31,12 @@ client.once('disconnect', () => {
 });
 
 client.on('message', async message => {
+
+	if (message.channel.type === "dm") {
+		client.user.send(message)
+		return
+	}
+
 	const args = message.content.slice(BOT_PREFIX.length).split(/ +/);
 	const commandName = args.shift().toLowerCase();
 
