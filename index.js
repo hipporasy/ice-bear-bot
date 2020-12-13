@@ -33,15 +33,17 @@ client.once('disconnect', () => {
 client.on('message', async message => {
 
 	if (message.channel.type === "dm") {
-		try {
-			const owner = client.users.cache.get(process.env.OWNER_ID)
-			owner.send(message)
-		} catch (err) {
-			console.log(err)
+		if (message.author.bot) return;
+		if (message.author.id != process.env.OWNER_ID) {
+			try {
+				const owner = client.users.cache.get(process.env.OWNER_ID)
+				owner.send(message)
+			} catch (err) {
+				console.log(err)
+			}
+			return
 		}
-		return
 	}
-
 	const args = message.content.slice(BOT_PREFIX.length).split(/ +/);
 	const commandName = args.shift().toLowerCase();
 
