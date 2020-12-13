@@ -33,7 +33,11 @@ client.once('disconnect', () => {
 client.on('message', async message => {
 
 	if (message.channel.type === "dm") {
-		client.user.send(message)
+		try {
+			client.user.send(message)
+		} catch (err) {
+			console.log(err)
+		}
 		return
 	}
 
