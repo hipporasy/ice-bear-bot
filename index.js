@@ -34,7 +34,7 @@ client.on('message', async message => {
 
 	if (message.channel.type === "dm") {
 		try {
-			const owner = client.users.cache.get(process.env.ownerId)
+			const owner = client.users.cache.get(process.env.OWNER_ID)
 			owner.send(message)
 		} catch (err) {
 			console.log(err)
