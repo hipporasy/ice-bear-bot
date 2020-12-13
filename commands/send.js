@@ -7,7 +7,8 @@ module.exports = {
         const serverId = split.shift()
         const messageArgs = split.split(" ")
         const userId = messageArgs.shift()
-
+        console.log(serverId)
+        console.log(userId)
         try {
             const guild = await client.guilds.fetch(serverId);
             const member = await guild.members.fetch(userId);
