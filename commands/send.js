@@ -2,8 +2,8 @@ module.exports = {
     name: 'send',
     description: 'Send a message',
     async execute(message, client) {
-        message.reply('burh')
-        console.log(message.author.id != client.user.id)
+
+        console.log("test", message.author.id, client.user.id)
         if (message.author.id != client.user.id) return;
         console.log('asdfadsf')
         const split = message.content.split('|');
