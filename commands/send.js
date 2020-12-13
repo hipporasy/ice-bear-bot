@@ -3,7 +3,7 @@ module.exports = {
     description: 'Send a message',
     async execute(message, client) {
         if (message.author.id != process.env.OWNER_ID) return;
-        const messageSplit = message.content.split('|');
+        const messageSplit = message.content.slice(0, 4).split('|');
         const serverId = messageSplit.shift()
         const messageArgs = messageSplit[0].split(" ")
         const userId = messageArgs.shift()
