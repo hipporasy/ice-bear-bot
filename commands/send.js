@@ -10,17 +10,10 @@ module.exports = {
         const msg = messageArgs.join(" ")
         client.guilds.fetch(serverId).then((guild) => {
             guild.members.fetch(userId).then((user) => {
-                user.send(" ort yul te bah")
                 user.send(msg)
+                message.reply(`Message sent to ${user.displayName}`)
             }).catch(console.error)
         }).catch(console.error)
-        // try {
-        //     const guild = await client.guilds.fetch(serverId);
-        //     const member = await guild.members.fetch(userId);
-        //     member.send(" ort yul te bah")
-        //     message.reply("sent")
-        // } catch (ex) {
-        //     message.reply(ex)
-        // }
+
     },
 };
