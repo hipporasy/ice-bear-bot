@@ -11,7 +11,7 @@ module.exports = {
         try {
             const guild = await client.guilds.fetch(serverId);
             const member = await guild.members.fetch(userId);
-            member.send(msg ? msg : " ort yul te bah")
+            member.send(" ort yul te bah")
             message.reply("sent")
         } catch (ex) {
             message.reply(ex)
