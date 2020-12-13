@@ -14,13 +14,13 @@ module.exports = {
                 user.send(msg)
             }).catch(console.error)
         }).catch(console.error)
-        try {
-            const guild = await client.guilds.fetch(serverId);
-            const member = await guild.members.fetch(userId);
-            member.send(" ort yul te bah")
-            message.reply("sent")
-        } catch (ex) {
-            message.reply(ex)
-        }
+        // try {
+        //     const guild = await client.guilds.fetch(serverId);
+        //     const member = await guild.members.fetch(userId);
+        //     member.send(" ort yul te bah")
+        //     message.reply("sent")
+        // } catch (ex) {
+        //     message.reply(ex)
+        // }
     },
 };
