@@ -1,7 +1,7 @@
 module.exports = {
     name: 'send',
     description: 'Send a message',
-    execute(message, client) {
+    async execute(message, client) {
         if (message.author.id !== client.user.id) return;
         const split = message.content.split('|');
         const serverId = split.shift()
