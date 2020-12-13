@@ -2,9 +2,9 @@ const fs = require('fs')
 const Discord = require('discord.js');
 const Client = require('./client/Client');
 const {
-	BOT_TOKEN,
 	BOT_PREFIX,
 } = require('./config.json');
+const BOT_TOKEN = process.env.BOT_TOKEN;
 
 const client = new Client();
 client.commands = new Discord.Collection();
