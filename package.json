@@ -21,6 +21,7 @@
     "ffmpeg": "0.0.4",
     "fluent-ffmpeg": "^2.1.2",
     "request": "^2.88.2",
+    "simple-youtube-api": "^5.2.1",
     "ytdl-core": "^4.1.4"
   }
 }

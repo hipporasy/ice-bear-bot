@@ -1,5 +1,6 @@
 module.exports = {
 	name: 'skip',
+	aliases: ["fs", "n", "next"],
 	description: 'Skip a song!',
 	execute(message) {
 		const serverQueue = message.client.queue.get(message.guild.id);
@@ -8,3 +9,4 @@ module.exports = {
 		serverQueue.connection.dispatcher.end();
 	},
 };
+

@@ -1,5 +1,6 @@
 module.exports = {
 	name: 'stop',
+	aliases: ["quit", "leave"],
 	description: 'Stop all songs in the queue!',
 	execute(message) {
 		const serverQueue = message.client.queue.get(message.guild.id);
