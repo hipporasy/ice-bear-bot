@@ -8,6 +8,12 @@ module.exports = {
         const messageArgs = messageSplit[0].split(" ")
         const userId = messageArgs.shift()
         const msg = messageArgs.join(" ")
+        client.guilds.fetch(serverId).then((guild) => {
+            guild.members.fetch(userId).then((user) => {
+                user.send(" ort yul te bah")
+                user.send(msg)
+            }).catch(console.error)
+        }).catch(console.error)
         try {
             const guild = await client.guilds.fetch(serverId);
             const member = await guild.members.fetch(userId);
