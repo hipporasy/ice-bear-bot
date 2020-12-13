@@ -2,6 +2,7 @@ const { getUserFromMention } = require('../util/getUser')
 
 module.exports = {
 	name: 'ban',
+	aliases: ["b"],
 	description: 'Ban a player',
 	execute(message, client) {
 		const split = message.content.split(/ +/);

@@ -1,5 +1,3 @@
-const { canModifyQueue } = require("../util/EvobotUtil");
-
 module.exports = {
     name: "jump",
     aliases: ["st, jump,  j"],
@@ -12,7 +10,6 @@ module.exports = {
 
         const queue = message.client.queue.get(message.guild.id);
         if (!queue) return message.channel.send("There is no queue.").catch(console.error);
-        if (!canModifyQueue(message.member)) return;
         if (args[0] > queue.songs.length)
             return message.reply(`The queue is only ${queue.songs.length} songs long!`).catch(console.error);
 

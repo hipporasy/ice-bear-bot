@@ -2,6 +2,7 @@ const fs = require('fs')
 
 module.exports = {
 	name: 'help',
+	aliases: ["h"],
 	description: 'List all available commands.',
 	execute(message) {
 		let str = '';
