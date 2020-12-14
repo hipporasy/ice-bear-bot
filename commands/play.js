@@ -25,7 +25,7 @@ module.exports = {
           "I need the permissions to join and speak in your voice channel!"
         );
       }
-      const args = message.split(" ");
+      const args = message.content.split(" ");
       const search = args.join(" ");
       const videoPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
       const playlistPattern = /^.*(list=)([^#\&\?]*).*/gi;
