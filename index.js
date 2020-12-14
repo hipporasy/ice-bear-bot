@@ -30,7 +30,7 @@ for (const file of commandFiles) {
 
 console.log(client.commands);
 
-client.once('ready', () => {
+client.once('ready', async () => {
 	console.log('Ready!');
 	console.log('Starting');
 	let jsonData = await parseCSV(trainedDataPath1);
