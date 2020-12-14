@@ -125,20 +125,20 @@ module.exports = {
 
     if (!song) {
       serverQueue.voiceChannel.leave();
-      queue.delete(guild.id);
+      serverQueue.delete(guild.id);
       return;
     }
 
     const dispatcher = serverQueue.connection
       .play(ytdl(song.url))
       .on("finish", () => {
-        if (queue.loop) {
-          let lastSong = queue.songs.shift();
-          queue.songs.push(lastSong);
-          this.play(queue.songs[0], message);
+        if (serverQueue.loop) {
+          let lastSong = serverQueue.songs.shift();
+          serverQueue.songs.push(lastSong);
+          this.play(serverQueue.songs[0], message);
         } else {
-          queue.songs.shift();
-          this.play(queue.songs[0], message);
+          serverQueue.songs.shift();
+          this.play(serverQueue.songs[0], message);
         }
       })
       .on("error", error => console.error(error));
