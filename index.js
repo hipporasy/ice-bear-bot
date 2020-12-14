@@ -38,7 +38,7 @@ client.once('ready', async () => {
 	let jsonData2 = await parseCSV(trainedDataPath3);
 	jsonData = jsonData.concat(jsonData1).concat(jsonData2);
 	trainData(jsonData);
-	console.log('Connected as: ' + client.User.username);
+	console.log('Connected as: ');
 });
 
 client.once('reconnecting', () => {
@@ -56,15 +56,16 @@ client.on('message', async message => {
 		if (message.author.id != process.env.OWNER_ID) {
 			try {
 				const owner = client.users.cache.get(process.env.OWNER_ID)
-				owner.send(message)
-
+				let content = message.content;
+				let answer = await handleMessage(message, content);
+				owner.send(`${message.author}: ${message}, Answer: ${answer}`)
 			} catch (err) {
 				console.log(err)
 			}
 			return
 		} else {
 			let content = message.content;
-			await handleMessage(e, content);
+			await handleMessage(message, content);
 		}
 	}
 	const args = message.content.slice(BOT_PREFIX.length).split(/ +/);
@@ -137,7 +138,8 @@ async function handleMessage(e, message) {
 	const answer = response.score > threshold && response.answer ? response.answer : "Sorry, I don't know what do you mean";
 	const unmatcheResponse = response.score < threshold ? `\nMessage : ${message} - response : ${answer}\n` : '';
 	fs.appendFile(unmatchedFile, unmatcheResponse, function () { });
-	e.message.channel.sendMessage(answer);
+	e.reply(answer);
+	return answer
 }
 
 
