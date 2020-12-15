@@ -76,7 +76,7 @@ client.on('message', async message => {
 		client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName));
 
 	if (message.author.bot) return;
-	if (message.mentions.has(bot.user)) {
+	if (message.mentions.has(client.user)) {
 		let content = message.content;
 		await handleMessage(message, content);
 		return
