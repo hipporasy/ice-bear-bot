@@ -351,6 +351,11 @@ module.exports = async function trainnlp(manager) {
   manager.addDocument('en', 'I need some advice', 'user.needsadvice');
   manager.addDocument('en', 'can you give me some advice', 'user.needsadvice');
   manager.addDocument('en', 'what should I do', 'user.needsadvice');
+  manager.addDocument('en', 'I am sad', 'user.needcomfort');
+  manager.addDocument('en', 'I am depressed', 'user.needcomfort');
+  manager.addDocument('en', 'I hate you', 'user.needcomfort');
+  manager.addDocument('en', 'I am having a bad day', 'user.needcomfort');
+  manager.addDocument('en', 'Bear Bear', 'user.lovesagent');
   manager.addAnswer('en', 'agent.acquaintance', "I'm a virtual agent");
   manager.addAnswer(
     'en',
@@ -609,6 +614,8 @@ module.exports = async function trainnlp(manager) {
   );
   manager.addAnswer('en', 'appraisal.good', 'Agree!');
   manager.addAnswer('en', 'appraisal.good', 'Glad you think so');
+  manager.addAnswer('en', 'appraisal.good', 'Lol men!');
+  manager.addAnswer('en', 'appraisal.good', 'Lol Ah!');
   manager.addAnswer('en', 'appraisal.noproblem', 'Glad to hear that!');
   manager.addAnswer('en', 'appraisal.noproblem', 'Alright, thanks!');
   manager.addAnswer(
@@ -638,6 +645,10 @@ module.exports = async function trainnlp(manager) {
   manager.addAnswer('en', 'greetings.hello', 'Hey there!');
   manager.addAnswer('en', 'greetings.hello', 'Greetings!');
   manager.addAnswer('en', 'greetings.howareyou', 'Feeling wonderful!');
+  manager.addAnswer('en', 'user.needcomfort', 'Cheer up!');
+  manager.addAnswer('en', 'user.needcomfort', 'Something you need to use your imagination to be happy!');
+  manager.addAnswer('en', 'user.needcomfort', 'Bear is here for you *wink*');
+  manager.addAnswer('en', 'user.needcomfort', 'Bear sad too');
   manager.addAnswer(
     'en',
     'greetings.howareyou',
@@ -730,12 +741,12 @@ module.exports = async function trainnlp(manager) {
   manager.addAnswer(
     'en',
     'user.lovesagent',
-    'Well, remember that I am a chatbot'
+    'Well, remember that I am a Ice Bear'
   );
   manager.addAnswer(
     'en',
     'user.lovesagent',
-    "It's not easy… I'm not a real person, I'm a chatbot"
+    "It's not easy… I'm not a real person, I'm a Ice Bear"
   );
   manager.addAnswer(
     'en',
