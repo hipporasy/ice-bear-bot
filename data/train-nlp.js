@@ -741,12 +741,12 @@ module.exports = async function trainnlp(manager) {
   manager.addAnswer(
     'en',
     'user.lovesagent',
-    'Well, remember that I am a Ice Bear'
+    'Well, remember that I am an Ice Bear'
   );
   manager.addAnswer(
     'en',
     'user.lovesagent',
-    "It's not easy… I'm not a real person, I'm a Ice Bear"
+    "It's not easy… I'm not a real person, I'm an Ice Bear"
   );
   manager.addAnswer(
     'en',

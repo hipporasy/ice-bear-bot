@@ -12,7 +12,7 @@ const manager = new NlpManager({ languages: ['en'] });
 const trainnlp = require('./data/train-nlp');
 const threshold = 0.5;
 const path = require("path");
-const modelPath = path.resolve('./model/model.nlp');
+const modelPath = path.resolve('tmp/model.nlp');
 const trainedDataPath1 = path.resolve('./data/qatraining1.csv');
 const trainedDataPath2 = path.resolve('./data/qatraining2.csv');
 const trainedDataPath3 = path.resolve('./data/qatraining3.csv');
@@ -37,7 +37,7 @@ client.once('ready', async () => {
 	let jsonData1 = await parseCSV(trainedDataPath2);
 	let jsonData2 = await parseCSV(trainedDataPath3);
 	jsonData = jsonData.concat(jsonData1).concat(jsonData2);
-	trainData([{}]);
+	trainData(jsonData);
 	console.log('Connected as: ');
 });
 
