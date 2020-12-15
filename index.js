@@ -76,6 +76,10 @@ client.on('message', async message => {
 		client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName));
 
 	if (message.author.bot) return;
+	if (message.mentions.has(bot.user)) {
+		await handleMessage(message, content);
+		return
+	}
 	if (!message.content.startsWith(BOT_PREFIX)) return;
 
 	try {
