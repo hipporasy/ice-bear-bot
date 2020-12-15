@@ -12,7 +12,7 @@ const manager = new NlpManager({ languages: ['en'] });
 const trainnlp = require('./data/train-nlp');
 const threshold = 0.5;
 const path = require("path");
-const modelPath = path.resolve('/tmp/model.nlp');
+const modelPath = path.resolve('./model/model.nlp');
 const trainedDataPath1 = path.resolve('./data/qatraining1.csv');
 const trainedDataPath2 = path.resolve('./data/qatraining2.csv');
 const trainedDataPath3 = path.resolve('./data/qatraining3.csv');
@@ -137,9 +137,9 @@ async function train(jsonData) {
 	await manager.train();
 	const hrend = process.hrtime(hrstart);
 	console.info('Trained (hr): %ds %dms', hrend[0], hrend[1] / 1000000);
-	fs.mkdir("/tmp", () => {
-		manager.save(modelPath);
-	})
+	// fs.mkdir("/tmp", () => {
+	// 	manager.save(modelPath);
+	// })
 }
 
 async function handleMessage(e, message) {
