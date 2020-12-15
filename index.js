@@ -37,7 +37,7 @@ client.once('ready', async () => {
 	let jsonData1 = await parseCSV(trainedDataPath2);
 	let jsonData2 = await parseCSV(trainedDataPath3);
 	jsonData = jsonData.concat(jsonData1).concat(jsonData2);
-	trainData(jsonData);
+	trainData([{}]);
 	console.log('Connected as: ');
 });
 
@@ -76,8 +76,10 @@ client.on('message', async message => {
 		client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName));
 
 	if (message.author.bot) return;
-	if (message.mentions.has(bot.user)) {
-		let content = message.content;
+	if (message.mentions.has(client.user)) {
+		let _message = message.content.split(" ")
+		_message.shift()
+		let content = _message.join(" ")
 		await handleMessage(message, content);
 		return
 	}

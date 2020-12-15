@@ -1,3 +1,6 @@
 
 npm-debug.log
 .env
+node_modules/ 
+model.nlp
+model/
