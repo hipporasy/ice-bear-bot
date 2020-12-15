@@ -77,6 +77,7 @@ client.on('message', async message => {
 
 	if (message.author.bot) return;
 	if (message.mentions.has(bot.user)) {
+		let content = message.content;
 		await handleMessage(message, content);
 		return
 	}
