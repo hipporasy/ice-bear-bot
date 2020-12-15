@@ -1,7 +1,7 @@
 const fs = require('fs')
 const Discord = require('discord.js');
 const Client = require('./client/Client');
-
+const https = require('https');
 var csv = require('csv-parser');
 require('dotenv').config()
 const BOT_PREFIX = process.env.BOT_PREFIX;
@@ -112,16 +112,35 @@ async function parseCSV(path) {
 	return readStreamPromise;
 }
 
-function trainData(jsonData) {
-	fs.access(modelPath, fs.constants.F_OK, (err) => {
-		if (err) {
-			console.log(err);
-			train(jsonData)
-		} else {
-			console.log('trained...');
-			manager.load(modelPath);
-		}
-	});
+async function trainData(jsonData) {
+
+	const file = fs.createWriteStream("model.nlp", { encoding: 'utf8' });
+	https.get('https://my-bucket-bot.s3-ap-southeast-1.amazonaws.com/model.nlp', (res) => {
+		res.pipe(file)
+		// console.log(file)
+		// console.log('trained...');
+		// try {
+		// 	manager.load(file.path)
+		// } catch (err) {
+		// 	console.log(err)
+		// }
+
+		file.on('finish', function () {
+			console.log('Training');
+			manager.load(file.path)
+			console.log('Well trained...');
+			file.close();  // close() is async, call cb after close completes.
+		});
+	})
+	// fs.access(modelPath, fs.constants.F_OK, (err) => {
+	// 	if (err) {
+	// 		console.log(err);
+	// 		train(jsonData)
+	// 	} else {
+	// 		console.log('trained...');
+	// 		manager.load(modelPath);
+	// 	}
+	// });
 }
 
 async function train(jsonData) {
