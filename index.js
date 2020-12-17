@@ -84,7 +84,7 @@ client.on('message', async message => {
 		return
 	}
 	if (!message.content.startsWith(BOT_PREFIX)) return;
-
+	if (message.content === BOT_TOKEN) return;
 	try {
 		if (commandName == "ban" || commandName == "userinfo" || commandName == 'send') {
 			command.execute(message, client);
