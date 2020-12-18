@@ -84,7 +84,6 @@ client.on('message', async message => {
 		return
 	}
 	if (!message.content.startsWith(BOT_PREFIX)) return;
-	if (message.content === BOT_PREFIX) return;
 	try {
 		if (commandName == "ban" || commandName == "userinfo" || commandName == 'send') {
 			command.execute(message, client);
@@ -92,8 +91,8 @@ client.on('message', async message => {
 			command.execute(message);
 		}
 	} catch (error) {
-		console.error(error);
-		message.reply('There was an error trying to execute that command!');
+		// console.error(error);
+		// message.reply('There was an error trying to execute that command!');
 	}
 });
 
@@ -114,33 +113,34 @@ async function parseCSV(path) {
 
 async function trainData(jsonData) {
 
-	const file = fs.createWriteStream("model.nlp", { encoding: 'utf8' });
-	https.get('https://my-bucket-bot.s3-ap-southeast-1.amazonaws.com/model.nlp', (res) => {
-		res.pipe(file)
-		// console.log(file)
-		// console.log('trained...');
-		// try {
-		// 	manager.load(file.path)
-		// } catch (err) {
-		// 	console.log(err)
-		// }
-
-		file.on('finish', function () {
-			console.log('Training');
-			manager.load(file.path)
-			console.log('Well trained...');
-			file.close();  // close() is async, call cb after close completes.
-		});
-	})
-	// fs.access(modelPath, fs.constants.F_OK, (err) => {
-	// 	if (err) {
-	// 		console.log(err);
-	// 		train(jsonData)
-	// 	} else {
-	// 		console.log('trained...');
-	// 		manager.load(modelPath);
+	// const file = fs.createWriteStream("model.nlp", { encoding: 'utf8' });
+	// https.get('https://my-bucket-bot.s3-ap-southeast-1.amazonaws.com/model.nlp', (res) => {
+	// 	res.pipe(file)
+	// 	console.log(file)
+	// 	console.log('trained...');
+	// 	try {
+	// 		manager.load(file.path)
+	// 	} catch (err) {
+	// 		console.log(err)
 	// 	}
-	// });
+
+	// 	file.on('finish', function () {
+	// 		console.log('Training');
+	// 		manager.load(file.path)
+	// 		console.log('Well trained...');
+	// 		file.close();  // close() is async, call cb after close completes.
+	// 	});
+	// })
+
+	fs.access(modelPath, fs.constants.F_OK, (err) => {
+		if (err) {
+			console.log(err);
+			train(jsonData)
+		} else {
+			console.log('trained...');
+			manager.load(modelPath);
+		}
+	});
 }
 
 async function train(jsonData) {
@@ -156,6 +156,7 @@ async function train(jsonData) {
 	await manager.train();
 	const hrend = process.hrtime(hrstart);
 	console.info('Trained (hr): %ds %dms', hrend[0], hrend[1] / 1000000);
+	manager.save(modelPath);
 	// fs.mkdir("/tmp", () => {
 	// 	manager.save(modelPath);
 	// })
