@@ -29,16 +29,6 @@ for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
 }
-for (const signal of ["SIGTERM", "SIGINT"]) {
-	process.on(signal, () => {
-		const musiccontroller = new MusicController();
-		musiccontroller.dropAllPlayers();
-
-		this.client.destroy()
-			.then(() => process.exit(0))
-			.catch(() => process.exit(1));
-	});
-}
 
 console.log(client.commands);
 
@@ -51,6 +41,12 @@ client.once('ready', async () => {
 	jsonData = jsonData.concat(jsonData1).concat(jsonData2);
 	trainData(jsonData);
 	console.log('Connected as: ');
+	const musiccontroller = new MusicController();
+	musiccontroller.dropAllPlayers();
+
+	this.client.destroy()
+		.then(() => process.exit(0))
+		.catch(() => process.exit(1));
 });
 
 client.once('reconnecting', () => {
@@ -100,7 +96,7 @@ client.on('message', async message => {
 		if (commandName == "ban" || commandName == "userinfo" || commandName == 'send') {
 			command.execute(message, client);
 		} else {
-			command.execute(message);
+			command.execute(message, args);
 		}
 	} catch (error) {
 		// console.error(error);
