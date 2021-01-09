@@ -21,11 +21,23 @@ const unmatchedFile = path.resolve('./unmatched/data.txt');
 const client = new Client();
 client.commands = new Discord.Collection();
 
+const MusicController = require("./music/music-controller.js");
+
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
+}
+for (const signal of ["SIGTERM", "SIGINT"]) {
+	process.on(signal, () => {
+		const musiccontroller = new MusicController();
+		musiccontroller.dropAllPlayers();
+
+		this.client.destroy()
+			.then(() => process.exit(0))
+			.catch(() => process.exit(1));
+	});
 }
 
 console.log(client.commands);

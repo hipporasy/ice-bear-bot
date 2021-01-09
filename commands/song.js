@@ -1,14 +1,14 @@
 const MusicController = require("../music/music-controller.js");
 
 module.exports = {
-    name: "play",
-    description: "Plays a YouTube video.",
-    aliases: ["p"],
-    args: true,
+    name: "song",
+    description: "Shows current song.",
+    aliases: ["np", "current"],
+    args: false,
     guildOnly: true,
-    cooldown: 1,
+    cooldown: 0,
     execute(message, args) {
         const musicController = new MusicController();
-        musicController.play(message, args.join(" "));
+        musicController.showCurrentSong(message);
     },
 };
