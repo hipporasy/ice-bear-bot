@@ -30,6 +30,17 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
+for (const signal of ["SIGTERM", "SIGINT"]) {
+	process.on(signal, () => {
+		const musiccontroller = new MusicController();
+		musiccontroller.dropAllPlayers();
+
+		this.client.destroy()
+			.then(() => process.exit(0))
+			.catch(() => process.exit(1));
+	});
+}
+
 console.log(client.commands);
 
 client.once('ready', async () => {
@@ -41,12 +52,6 @@ client.once('ready', async () => {
 	jsonData = jsonData.concat(jsonData1).concat(jsonData2);
 	trainData(jsonData);
 	console.log('Connected as: ');
-	const musiccontroller = new MusicController();
-	musiccontroller.dropAllPlayers();
-
-	this.client.destroy()
-		.then(() => process.exit(0))
-		.catch(() => process.exit(1));
 });
 
 client.once('reconnecting', () => {
