@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'prune',
 	description: 'Delete the last messages in all chats.',
-	async execute(message) {
+	async execute(message, args) {
 		const args = message.content.split(' ');
 		let deleteCount = 0;
 		try {
