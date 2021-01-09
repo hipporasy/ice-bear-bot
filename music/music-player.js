@@ -114,11 +114,11 @@ class MusicPlayer {
      * Começa a reproduzir uma música. Caso seja necessário, conecta-se a um
      * voice channel.
      * 
-     * @param {Discord.GuildMember} voiceChannel membro que solicitou uma música
+     * @param {Discord.GuildMember} voice.channel membro que solicitou uma música
      * @param {MusicSong} song música a reproduzir
      */
     startPlaying(member, song) {
-        const voiceChannel = member.voiceChannel;
+        const voiceChannel = member.voice.channel;
         const player = this;
 
         this.currentSong = new MusicQueueItem(member, song);
