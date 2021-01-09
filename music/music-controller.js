@@ -54,7 +54,7 @@ class MusicController {
     play(message, songName) {
         // Finaliza o comando prematuramente se o usuário não estiver em um
         // voice channel.
-        if (!message.member.voiceChannel) {
+        if (!message.member.voice.channel) {
             message.reply("you are not in a voice channel!");
             return;
         }
@@ -89,7 +89,7 @@ class MusicController {
             // ENQUEUE
             // Caso em que o bot está reproduzindo algo, e está no mesmo voice
             // channel que o membro que solicitou uma música.
-            if (player.voiceConnection.channel.id === message.member.voiceChannel.id) {
+            if (player.voiceConnection.channel.id === message.member.voice.channel.id) {
                 searchYouTube(songName)
                     .then(musicSong => {
                         if (musicSong === null) return;
@@ -118,7 +118,7 @@ class MusicController {
             return;
         }
 
-        if (player.voiceConnection.channel.id === message.member.voiceChannel.id) {
+        if (player.voiceConnection.channel.id === message.member.voice.channel.id) {
             player.skipCurrentSong();
             return;
         }
