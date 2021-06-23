@@ -45,6 +45,14 @@ console.log(client.commands);
 
 client.once('ready', async () => {
 	console.log('Ready!');
+	console.log('Set Preseneces!');
+	client.user.setPresence({
+        status: "Playing",
+        game: {
+            name: `!help for commands | Watching shukakucult server with ${client.users.cache.size} members.`,
+            type: "PLAYING"
+        }
+    });
 	console.log('Starting');
 	let jsonData = await parseCSV(trainedDataPath1);
 	let jsonData1 = await parseCSV(trainedDataPath2);
@@ -104,8 +112,8 @@ client.on('message', async message => {
 			command.execute(message, args);
 		}
 	} catch (error) {
-		// console.error(error);
-		// message.reply('There was an error trying to execute that command!');
+		console.error(error);
+		message.reply('There was an error trying to execute that command!');
 	}
 });
 
@@ -125,26 +133,6 @@ async function parseCSV(path) {
 }
 
 async function trainData(jsonData) {
-
-	// const file = fs.createWriteStream("model.nlp", { encoding: 'utf8' });
-	// https.get('https://my-bucket-bot.s3-ap-southeast-1.amazonaws.com/model.nlp', (res) => {
-	// 	res.pipe(file)
-	// 	console.log(file)
-	// 	console.log('trained...');
-	// 	try {
-	// 		manager.load(file.path)
-	// 	} catch (err) {
-	// 		console.log(err)
-	// 	}
-
-	// 	file.on('finish', function () {
-	// 		console.log('Training');
-	// 		manager.load(file.path)
-	// 		console.log('Well trained...');
-	// 		file.close();  // close() is async, call cb after close completes.
-	// 	});
-	// })
-
 	fs.access(modelPath, fs.constants.F_OK, (err) => {
 		if (err) {
 			console.log(err);
@@ -184,5 +172,39 @@ async function handleMessage(e, message) {
 	return answer
 }
 
+const rpc = new DiscordRPC.Client({ transport: 'ipc' });
+const startTimestamp = new Date();
 
+async function setActivity() {
+  if (!rpc || !mainWindow) {
+    return;
+  }
+
+  const boops = await mainWindow.webContents.executeJavaScript('window.boops');
+
+  // You'll need to have snek_large and snek_small assets uploaded to
+  // https://discord.com/developers/applications/<application_id>/rich-presence/assets
+  rpc.setActivity({
+    details: `booped ${boops} times`,
+    state: 'in slither party',
+    startTimestamp,
+    largeImageKey: 'snek_large',
+    largeImageText: 'tea is delicious',
+    smallImageKey: 'snek_small',
+    smallImageText: 'i am my own pillows',
+    instance: false,
+  });
+}
+
+rpc.on('ready', () => {
+  setActivity();
+
+  // activity can only be set every 15 seconds
+  setInterval(() => {
+    setActivity();
+  }, 15e3);
+});
+
+
+rpc.login({ BOT_ID }).catch(console.error);
 client.login(BOT_TOKEN);
