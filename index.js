@@ -6,6 +6,7 @@ var csv = require('csv-parser');
 require('dotenv').config()
 const BOT_PREFIX = process.env.BOT_PREFIX;
 const BOT_TOKEN = process.env.BOT_TOKEN;
+const BOT_ID = process.env.BOT_ID;
 
 const { NlpManager } = require('node-nlp');
 const manager = new NlpManager({ languages: ['en'] });
@@ -45,15 +46,15 @@ console.log(client.commands);
 
 client.once('ready', async () => {
 	console.log('Ready!');
-	console.log('Set Preseneces!');
-	client.user.setPresence({
-        status: "Playing",
-        game: {
-            name: `!help for commands | Watching shukakucult server with ${client.users.cache.size} members.`,
-            type: "PLAYING"
-        }
-    });
-	console.log('Starting');
+	// client.user.setPresence({
+	// 	status: 'online',
+	// 	activity: {
+	// 	  name: 'Developing Bot',
+	// 	  type: 'COMPETING',
+	// 	  url: 'https://github.com/hipporasy/ice-bear-bot'
+	// 	}
+	// })
+	// console.log('Starting');
 	let jsonData = await parseCSV(trainedDataPath1);
 	let jsonData1 = await parseCSV(trainedDataPath2);
 	let jsonData2 = await parseCSV(trainedDataPath3);
@@ -106,7 +107,7 @@ client.on('message', async message => {
 	}
 	if (!message.content.startsWith(BOT_PREFIX)) return;
 	try {
-		if (commandName == "ban" || commandName == "userinfo" || commandName == 'send') {
+		if (commandName == "ban" || commandName == "userinfo" || commandName == 'send' || commandName == 'disconnect' || commandName == 'dc' || commandName == 'd') {
 			command.execute(message, client);
 		} else {
 			command.execute(message, args);
@@ -172,39 +173,26 @@ async function handleMessage(e, message) {
 	return answer
 }
 
-const rpc = new DiscordRPC.Client({ transport: 'ipc' });
-const startTimestamp = new Date();
 
-async function setActivity() {
-  if (!rpc || !mainWindow) {
-    return;
-  }
+// async function setActivity() {
+//   if (!rpc || !mainWindow) {
+//     return;
+//   }
 
-  const boops = await mainWindow.webContents.executeJavaScript('window.boops');
+//   const boops = await mainWindow.webContents.executeJavaScript('window.boops');
 
-  // You'll need to have snek_large and snek_small assets uploaded to
-  // https://discord.com/developers/applications/<application_id>/rich-presence/assets
-  rpc.setActivity({
-    details: `booped ${boops} times`,
-    state: 'in slither party',
-    startTimestamp,
-    largeImageKey: 'snek_large',
-    largeImageText: 'tea is delicious',
-    smallImageKey: 'snek_small',
-    smallImageText: 'i am my own pillows',
-    instance: false,
-  });
-}
+//   // You'll need to have snek_large and snek_small assets uploaded to
+//   // https://discord.com/developers/applications/<application_id>/rich-presence/assets
+//   rpc.setActivity({
+//     details: `booped ${boops} times`,
+//     state: 'in slither party',
+//     startTimestamp,
+//     largeImageKey: 'snek_large',
+//     largeImageText: 'tea is delicious',
+//     smallImageKey: 'snek_small',
+//     smallImageText: 'i am my own pillows',
+//     instance: false,
+//   });
+// }
 
-rpc.on('ready', () => {
-  setActivity();
-
-  // activity can only be set every 15 seconds
-  setInterval(() => {
-    setActivity();
-  }, 15e3);
-});
-
-
-rpc.login({ BOT_ID }).catch(console.error);
 client.login(BOT_TOKEN);

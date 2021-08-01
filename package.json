@@ -27,6 +27,7 @@
     "natural": "^2.1.5",
     "node-cron": "^3.0.0",
     "node-nlp": "^4.17.2",
+    "node-schedule": "^2.0.0",
     "request": "^2.88.2",
     "simple-youtube-api": "^5.2.1",
     "ytdl-core": "^4.1.4"

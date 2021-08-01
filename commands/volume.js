@@ -16,3 +16,4 @@ module.exports = {
         musicController.setVolume(message, newVolume);
     },
 };
+
