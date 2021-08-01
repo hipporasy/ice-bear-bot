@@ -10,19 +10,17 @@ module.exports = {
  	* @param {Discord.Message} 
  	* @param {Discord.Client}
  	*/
-	execute(message, client) {
+	 async execute(message, client){
 		const split = message.content.split(/ +/);
 		const args = split.slice(1);
-		const mentionUsers = message.mentions.users.first()
+		let guildMember = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0])) // Takes the user mentioned, or the ID of a user
 		const user = getUserFromMention(args[0], client);
 		const time = args[1];
 		const guild = message.guild;
 		var newDateObj = new Date(message.createdAt + time*60000);
-		schedule.scheduleJob(newDateObj, async () => {
-			const guildMember = await guild.fetch(user);
+		schedule.scheduleJob(newDateObj, () => {
 			const voiceState = guildMember.voice;
-			console.log(guildMember);
-			voiceState.setChannel(null);
+			voiceState.kick();
 			message.channel.send(`${user.username} has been disconnected!`);
 		});
 		message.channel.send(`Name: ${user.username} will disconnect in ${time} minutes`);
