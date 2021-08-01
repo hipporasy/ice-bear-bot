@@ -79,8 +79,8 @@ client.on('message', async message => {
 			try {
 				const owner = client.users.cache.get(process.env.OWNER_ID)
 				let content = message.content;
-				let answer = await handleMessage(message, content);
-				owner.send(`${message.author}: ${message}, Answer: ${answer}`)
+				//let answer = await handleMessage(message, content);
+				owner.send(`${message.author}: ${message}`);
 			} catch (err) {
 				console.log(err)
 			}
@@ -164,9 +164,13 @@ async function train(jsonData) {
 	// })
 }
 
+const randomMessage = ["Gomen :(", "I love Anbu", "Sorry, I don't know what do you mean", "Ort deng te", "Somtos b", "Saddddddddd!", "ort deng teh :(", "krob yang derm "];
+
 async function handleMessage(e, message) {
+	const lenght = randomMessage.length -1;
+	const number = Math.floor(Math.random() * lenght);
 	const response = await manager.process('en', message);
-	const answer = response.score > threshold && response.answer ? response.answer : "Sorry, I don't know what do you mean";
+	const answer = response.score > threshold && response.answer ? response.answer : randomMessage[number];
 	const unmatcheResponse = response.score < threshold ? `\nMessage : ${message} - response : ${answer}\n` : '';
 	fs.appendFile(unmatchedFile, unmatcheResponse, function () { });
 	e.reply(answer);
