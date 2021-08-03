@@ -46,15 +46,6 @@ console.log(client.commands);
 
 client.once('ready', async () => {
 	console.log('Ready!');
-	// client.user.setPresence({
-	// 	status: 'online',
-	// 	activity: {
-	// 	  name: 'Developing Bot',
-	// 	  type: 'COMPETING',
-	// 	  url: 'https://github.com/hipporasy/ice-bear-bot'
-	// 	}
-	// })
-	// console.log('Starting');
 	let jsonData = await parseCSV(trainedDataPath1);
 	let jsonData1 = await parseCSV(trainedDataPath2);
 	let jsonData2 = await parseCSV(trainedDataPath3);
@@ -159,12 +150,23 @@ async function train(jsonData) {
 	const hrend = process.hrtime(hrstart);
 	console.info('Trained (hr): %ds %dms', hrend[0], hrend[1] / 1000000);
 	manager.save(modelPath);
-	// fs.mkdir("/tmp", () => {
-	// 	manager.save(modelPath);
-	// })
 }
 
-const randomMessage = ["Gomen :(", "I love Anbu", "Sorry, I don't know what do you mean", "Ort deng te", "Somtos b", "Saddddddddd!", "ort deng teh :(", "krob yang derm "];
+const randomMessage = ["Gomen :(", 
+"I love Anbu", 
+"Sorry, I don't know what do you mean", 
+"Ort deng te", 
+"Somtos b", 
+"Saddddddddd!", "ort deng teh :(", 
+"krob yang derm ",
+"bos ke ah yey XD",
+"hort hah",
+"sing 1 mok!",
+"vai knea 1 = ort?",
+"Boba hei?",
+"Chop tov ah Chuu",
+"chop sl lov ai",
+"Airplane with pink head"];
 
 async function handleMessage(e, message) {
 	const lenght = randomMessage.length -1;
@@ -176,27 +178,5 @@ async function handleMessage(e, message) {
 	e.reply(answer);
 	return answer
 }
-
-
-// async function setActivity() {
-//   if (!rpc || !mainWindow) {
-//     return;
-//   }
-
-//   const boops = await mainWindow.webContents.executeJavaScript('window.boops');
-
-//   // You'll need to have snek_large and snek_small assets uploaded to
-//   // https://discord.com/developers/applications/<application_id>/rich-presence/assets
-//   rpc.setActivity({
-//     details: `booped ${boops} times`,
-//     state: 'in slither party',
-//     startTimestamp,
-//     largeImageKey: 'snek_large',
-//     largeImageText: 'tea is delicious',
-//     smallImageKey: 'snek_small',
-//     smallImageText: 'i am my own pillows',
-//     instance: false,
-//   });
-// }
 
 client.login(BOT_TOKEN);

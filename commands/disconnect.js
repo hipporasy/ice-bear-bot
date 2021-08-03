@@ -2,6 +2,16 @@ const { getUserFromMention } = require('../util/getUser')
 const Discord = require('discord.js');
 const schedule = require('node-schedule');
 const dayjs = require('dayjs');
+
+const availableUser = [
+	'820193667599302676', 
+	'746992790352822274',
+	'855325729809367040',
+	'718058156999180348',
+	'175196751131705344',
+	'757616096550322247'
+];
+
 module.exports = {
 	name: 'disconnect',
 	aliases: ['d', 'dc'],
@@ -11,8 +21,8 @@ module.exports = {
  	* @param {Discord.Message} 
  	* @param {Discord.Client}
  	*/
-	 async execute(message, client){
-		if (message.author.id != process.env.OWNER_ID && message.author.id != 820193667599302676 && message.author.id != 746992790352822274) { 
+	 async execute(message, client) {
+		if (message.author.id != process.env.OWNER_ID && !availableUser.includes(message.author.id.toString())) { 
 			message.channel.send(`Ort ban teh bro XD`);
 			return;
 		}
