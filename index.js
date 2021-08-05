@@ -166,7 +166,9 @@ const randomMessage = ["Gomen :(",
 "Boba hei?",
 "Chop tov ah Chuu",
 "chop sl lov ai",
-"Airplane with pink head"];
+"Airplane with pink head",
+"Are you Human"
+];
 
 async function handleMessage(e, message) {
 	const lenght = randomMessage.length -1;

@@ -760,15 +760,113 @@ module.exports = async function trainnlp(manager) {
   );
 
   //khmer version
-    //user.angry
-       manager.addDocument('en', 'ah jm', 'user.angry');
-       manager.addDocument('en', 'ah ach ko', 'user.angry');
-       manager.addAnswer('en', 'user.angry', "Kac mes b :( ");
-       manager.addAnswer('en', 'user.angry', "ter lg ta ");
-       manager.addAnswer('en', 'user.angry', "jg mex ha :( ");
-       manager.addAnswer('en', 'user.angry', "nhuii j :( ");
- 
+    //discord
+    manager.addDocument('en', '!discord', 'mit.discord');
+    manager.addAnswer('en', 'mit.discord', "discord.gg/EzRfJVV");
+    manager.addDocument('en', '!admin', 'mit.admin');
+    manager.addAnswer('en', 'mit.admin', "<@!175196751131705344>");
+    manager.addDocument('en', '!mod', 'mit.mod');
+    manager.addDocument('en', 'na ke boss u', 'mit.mod');
+    manager.addDocument('en', '!bos', 'mit.mod');
+    manager.addDocument('en', 'na ke boss you', 'mit.mod');
+    manager.addAnswer('en', 'mit.mod', "<@!653608846731771935>");
+    //mit.angry
+       manager.addDocument('en', 'ah jm', 'mit.angry');
+       manager.addDocument('en', 'ah ach ko', 'mit.angry');
+       manager.addDocument('en', 'a jm', 'mit.angry');
+       manager.addAnswer('en', 'mit.angry', "Kac mes b :( ");
+       manager.addAnswer('en', 'mit.angry', "ter lg ta ");
+       manager.addAnswer('en', 'mit.angry', "jg mex ha ");
+       manager.addAnswer('en', 'mit.angry', "nhuii j ");
+       manager.addAnswer('en', 'mit.angry', "bos ke yey");
+     //mit.ask
+     manager.addDocument('en', 'who are you', 'mit.ask');
+     manager.addDocument('en', 'you na ke', 'mit.ask');
+     manager.addDocument('en', 'u na ke', 'mit.ask');
+     manager.addDocument('en', 'who is ice bear', 'mit.ask');
+     manager.addDocument('en', 'na ke ice bear', 'mit.ask');
+     manager.addDocument('en', 'who is ice bear', 'mit.ask');
+     manager.addAnswer('en', 'mit.ask', "nh mjas bes doung you");
+     manager.addAnswer('en', 'mit.ask', "nh bros sart");
+     manager.addAnswer('en', 'mit.ask', "nh dara");
+     manager.addAnswer('en', 'mit.ask', "anh god");
+      //mit.jlery
+     manager.addDocument('en', 'chuii', 'mit.jlery');
+     manager.addDocument('en', 'juii', 'mit.jlery');
+     manager.addDocument('en', 'nhuii', 'mit.jlery');
+     manager.addAnswer('en', 'mit.jlery', "jlery mes");
+     manager.addAnswer('en', 'mit.jlery', "ah nis jlery nas");
+     manager.addAnswer('en', 'mit.jlery', "jg mex very");
+     manager.addAnswer('en', 'mit.jlery', "srul boul tic");
+       //mit.som sl
+       manager.addDocument('en', 'sl nh ot', 'mit.somsl');
+       manager.addDocument('en', 'sl knea mg tv', 'mit.somsl');
+       manager.addDocument('en', 'sl u', 'mit.somsl');
+       manager.addDocument('en', 'sl you', 'mit.somsl');
+       manager.addDocument('en', 'som sl ban ot', 'mit.somsl');
+       manager.addDocument('en', 'sl nh tv', 'mit.somsl');
+       manager.addDocument('en', 'do you love me', 'mit.somsl');
+        manager.addAnswer('en', 'mit.somsl', "muk jg ng");
+        manager.addAnswer('en', 'mit.somsl', "mos ban ta");
+        manager.addAnswer('en', 'mit.somsl', "ot jg");
+        manager.addAnswer('en', 'mit.somsl', "ke oy marn");
+        manager.addAnswer('en', 'mit.somsl', "srul srul mes");
+        manager.addAnswer('en', 'mit.somsl', "nh mean ss huy");
+        manager.addAnswer('en', 'mit.somsl', "yat ss nh vai");
+        //mit.helo
+        manager.addDocument('en', 'helo', 'mit.helo');
+        manager.addDocument('en', 'hi', 'mit.helo');
+        manager.addDocument('en', 'hi ice bear', 'mit.helo');
+        manager.addDocument('en', 'hello', 'mit.helo');
+        manager.addDocument('en', 'helo ice bear', 'mit.helo');
+        manager.addAnswer('en', 'mit.helo', "hi o");
+        manager.addAnswer('en', 'mit.helo', "hello o");
+        manager.addAnswer('en', 'mit.helo', "hello o sl");
+        //miracle
+        manager.addDocument('en', 'who is miracle', 'mit.miracle');
+        manager.addDocument('en', 'who is kage', 'mit.miracle');
+        manager.addDocument('en', 'who is rincon', 'mit.miracle');
+        manager.addDocument('en', 'who is khalida', 'mit.miracle');
+        manager.addDocument('en', 'who is teveda', 'mit.miracle');
+        manager.addDocument('en', 'who is <@!>', 'mit.miracle');
+        manager.addAnswer('en', 'mit.miracle', "kmouch dg");
+        manager.addAnswer('en', 'mit.miracle', "ot skol ah 1 ng dea");
+        manager.addAnswer('en', 'mit.miracle', "mnus bek sloy jg ot skol te");
+        manager.addAnswer('en', 'mit.miracle', "mnus bek bat song kom jg ot skol te");
+        manager.addAnswer('en', 'mit.miracle', "mnus bek sloy");
 
+        //jg mex 
+        manager.addDocument('en', 'jlery mes', 'mit.jgmex');
+        manager.addDocument('en', 'bot jlery mes', 'mit.jgmex');
+        manager.addDocument('en', 'bot chlery mes', 'mit.jgmex');
+        manager.addDocument('en', 'clery mes', 'mit.jgmex');
+        manager.addDocument('en', 'chlery mes', 'mit.jgmex');
+        manager.addDocument('en', 'bos ke', 'mit.jgmex');
+        manager.addAnswer('en', 'mit.jgmex', "jg mex");
+        manager.addAnswer('en', 'mit.jgmex', "1= ban");
+        
+        manager.addDocument('en', 'vai knea 1 = ort?', 'mit.1=ot');
+        manager.addDocument('en', 'sroul boul tex vai lov aii', 'mit.1=ot');
+        manager.addDocument('en', '1=', 'mit.1=ot');
+        manager.addDocument('en', 'vai 1=', 'mit.1=ot');
+        manager.addDocument('en', '1= ot', 'mit.1=ot');
+        manager.addAnswer('en', 'mit.1=ot', "ban ta");
+        manager.addAnswer('en', 'mit.1=ot', "mos hav knea mor");
+        manager.addAnswer('en', 'mit.1=ot', "klac ha mnus kom pek kom puk jg ng");
 
-
+        
+        manager.addDocument('en', 'sing 1 mor', 'mit.sing');
+        manager.addDocument('en', 'sing 1', 'mit.sing');
+        manager.addDocument('en', 'sing', 'mit.sing');
+        manager.addDocument('en', 'sing 1 mor o', 'mit.sing');
+        manager.addAnswer('en', 'mit.sing', "ot jg");
+        manager.addAnswer('en', 'mit.sing', "ot jes sing te");
+        manager.addAnswer('en', 'mit.sing', "happy birthday to me ! - -happy birthday to you -= happy happy happy la la la");
+        manager.addAnswer('en', 'mit.sing', "u na ke jg oy me sing ng");
+        
+        manager.addDocument('en', 'good night', 'mit.goodnight');
+        manager.addDocument('en', 'gn', 'mit.goodnight');
+        manager.addAnswer('en', 'mit.goodnight', "dek tv mit");
+        manager.addAnswer('en', 'mit.goodnight', "good night babe");
+        manager.addAnswer('en', 'mit.goodnight', "good night nob");
 };
