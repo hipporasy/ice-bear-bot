@@ -758,4 +758,17 @@ module.exports = async function trainnlp(manager) {
     'user.needsadvice',
     "I'm not sure I'll have the best answer, but I'll try"
   );
+
+  //khmer version
+    //user.angry
+       manager.addDocument('en', 'ah jm', 'user.angry');
+       manager.addDocument('en', 'ah ach ko', 'user.angry');
+       manager.addAnswer('en', 'user.angry', "Kac mes b :( ");
+       manager.addAnswer('en', 'user.angry', "ter lg ta ");
+       manager.addAnswer('en', 'user.angry', "jg mex ha :( ");
+       manager.addAnswer('en', 'user.angry', "nhuii j :( ");
+ 
+
+
+
 };
