@@ -157,8 +157,8 @@ const randomMessage = ["Gomen :(",
 "Sorry, I don't know what do you mean", 
 "Ort deng te", 
 "Somtos b", 
-"Saddddddddd!", "ort deng teh :(", 
-"krob yang derm ",
+"Saddddddddd!",
+"ort deng teh :(", 
 "bos ke ah yey XD",
 "hort hah",
 "sing 1 mok!",
@@ -167,7 +167,8 @@ const randomMessage = ["Gomen :(",
 "Chop tov ah Chuu",
 "chop sl lov ai",
 "Airplane with pink head",
-"Are you Human"
+"Are you Human",
+"Somvor!"
 ];
 
 async function handleMessage(e, message) {
