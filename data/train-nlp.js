@@ -830,11 +830,11 @@ module.exports = async function trainnlp(manager) {
   manager.addAnswer("en", "mit.helo", "hi o");
   manager.addAnswer("en", "mit.helo", "hello o");
   manager.addAnswer("en", "mit.helo", "hello o sl");
-  
+
   //miracle
-  manager.addDocument("en", "who is <@!>", "mit.miracle");
-  manager.addDocument("en", "na ke <@!>?", "mit.miracle");
-  manager.addDocument("en", "<@!> jea pi na ke?", "mit.miracle");
+  manager.addDocument("en", "who is <@!", "mit.miracle");
+  manager.addDocument("en", "na ke <@!", "mit.miracle");
+  manager.addDocument("en", "<@! jea pi na ke?", "mit.miracle");
   manager.addAnswer("en", "mit.miracle", "kmouch dg");
   manager.addAnswer("en", "mit.miracle", "ot skol ah 1 ng dea");
   manager.addAnswer("en", "mit.miracle", "mnus bek sloy jg ot skol te");
