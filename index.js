@@ -98,7 +98,13 @@ client.on('message', async message => {
 	}
 	if (!message.content.startsWith(BOT_PREFIX)) return;
 	try {
-		if (commandName == "ban" || commandName == "userinfo" || commandName == 'send' || commandName == 'disconnect' || commandName == 'dc' || commandName == 'd') {
+		if (commandName == "ban" 
+		|| commandName == "userinfo" 
+		|| commandName == 'send' 
+		|| commandName == 'disconnect' 
+		|| commandName == 'dc' 
+		|| commandName == 'd'
+		|| commandName == 'welcome') {
 			command.execute(message, client);
 		} else {
 			command.execute(message, args);
