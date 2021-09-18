@@ -14,6 +14,5 @@ module.exports = {
                 message.reply(`Message sent to ${user.displayName}`)
             }).catch(console.error)
         }).catch(console.error)
-
     },
 };
