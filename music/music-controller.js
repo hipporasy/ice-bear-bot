@@ -352,7 +352,7 @@ async function doYouTubeSearchList(extraSearchOptions) {
         part: "snippet",
         type: "video",
         maxResults: 10,
-        regionCode: 65,
+        regionCode: "KH",
     };
 
     for (const key in extraSearchOptions) {
