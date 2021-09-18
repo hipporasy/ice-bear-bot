@@ -881,4 +881,41 @@ module.exports = async function trainnlp(manager) {
   manager.addAnswer("en", "mit.goodnight", "dek tv mit");
   manager.addAnswer("en", "mit.goodnight", "good night babe");
   manager.addAnswer("en", "mit.goodnight", "good night nob");
+
+  manager.addDocument("en", "yang mex", "mit.yangmex");
+  manager.addDocument("en", "sl yang mex", "mit.yangmex");
+  manager.addAnswer("en", "mit.yangmex", "jong vai 1=");
+  manager.addAnswer("en", "mit.yangmex", "jong som tver ss");
+  manager.addAnswer("en", "mit.yangmex", "cute");
+
+  manager.addDocument("en", "pel na sleep?", "when.sleep");
+  manager.addDocument("en", "sl yang mex", "when.sleep");
+  manager.addAnswer("en", "when.sleep", "Sleep is for the weak!");
+  manager.addAnswer("en", "when.sleep", "ខ្សោយម៉េស​ bro");
+  manager.addAnswer("en", "when.sleep", "jam o eng keng sen");
+  manager.addAnswer("en", "when.sleep", "jam keng 1 o eng");
+
+  manager.addDocument("en", "pong tver ei?", "tver.ei");
+  manager.addDocument("en", "pg ter ei?", "tver.ei");
+  manager.addDocument("en", "doing?", "tver.ei");
+  manager.addAnswer("en", "tver.ei", "pong traumatized!");
+  manager.addAnswer("en", "tver.ei", "pong tam sl u");
+  manager.addAnswer("en", "tver.ei", "pong nov boba wbu?");
+  manager.addAnswer("en", "tver.ei", "pong nhae kage?");
+
+  manager.addDocument("en", "ss u na ke?", "ss.bear");
+  manager.addDocument("en", "mean ss tt", "ss.bear");
+  manager.addDocument("en", "who is your ss?", "ss.bear");
+  manager.addDocument("en", "ss", "ss.bear");
+  manager.addAnswer("en", "ss.bear", "O <@!501086522661928981>");
+  manager.addAnswer("en", "ss.bear", "J <@!763042154581983233>");
+  manager.addAnswer("en", "ss.bear", "E Traumatized <@!757616096550322247>");
+  manager.addAnswer("en", "ss.bear", "jkj <@!633677967754526756>");
+  
+  manager.addDocument("en", "ss jrern mes?", "ss.bear.jrern");
+  manager.addAnswer("en", "ss.bear.jrern", "man orn na");
+  manager.addAnswer("en", "ss.bear.jrern", "muk ke saart; somdey ke ban jeng : p");
+  manager.addAnswer("en", "ss.bear.jrern", "loy ort?");
+  manager.addAnswer("en", "ss.bear.jrern", "jnen man?");
+  manager.addAnswer("en", "ss.bear.jrern", "yok klas ort?");
 };
