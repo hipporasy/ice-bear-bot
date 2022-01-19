@@ -768,16 +768,16 @@ module.exports = async function trainnlp(manager) {
   );
 
   //khmer version
-  //discord
-  manager.addDocument("en", "!discord", "mit.discord");
-  manager.addAnswer("en", "mit.discord", "discord.gg/EzRfJVV");
-  manager.addDocument("en", "!admin", "mit.admin");
-  manager.addAnswer("en", "mit.admin", "<@!175196751131705344>");
-  manager.addDocument("en", "!mod", "mit.mod");
-  manager.addDocument("en", "na ke boss u", "mit.mod");
-  manager.addDocument("en", "!bos", "mit.mod");
-  manager.addDocument("en", "na ke boss you", "mit.mod");
-  manager.addAnswer("en", "mit.mod", "<@!653608846731771935>");
+  // //discord
+  // manager.addDocument("en", "!discord", "mit.discord");
+  // manager.addAnswer("en", "mit.discord", "discord.gg/EzRfJVV");
+  // manager.addDocument("en", "!admin", "mit.admin");
+  // manager.addAnswer("en", "mit.admin", "<@!175196751131705344>");
+  // manager.addDocument("en", "!mod", "mit.mod");
+  // manager.addDocument("en", "na ke boss u", "mit.mod");
+  // manager.addDocument("en", "!bos", "mit.mod");
+  // manager.addDocument("en", "na ke boss you", "mit.mod");
+  // manager.addAnswer("en", "mit.mod", "<@!653608846731771935>");
   //mit.angry
   manager.addDocument("en", "ah jm", "mit.angry");
   manager.addDocument("en", "ah ach ko", "mit.angry");
@@ -904,18 +904,26 @@ module.exports = async function trainnlp(manager) {
   manager.addAnswer("en", "tver.ei", "pong nhae kage?");
 
   manager.addDocument("en", "ss u na ke?", "ss.bear");
+  manager.addDocument("en", "na ke sugar mommy?", "ss.bear");
   manager.addDocument("en", "mean ss tt", "ss.bear");
   manager.addDocument("en", "who is your ss?", "ss.bear");
   manager.addDocument("en", "ss", "ss.bear");
-  manager.addAnswer("en", "ss.bear", "O <@!501086522661928981>");
-  manager.addAnswer("en", "ss.bear", "J <@!763042154581983233>");
-  manager.addAnswer("en", "ss.bear", "E Traumatized <@!757616096550322247>");
-  manager.addAnswer("en", "ss.bear", "jkj <@!633677967754526756>");
-  
+  manager.addAnswer("en", "ss.bear", "O <@!728301820539174934>");
+  manager.addAnswer("en", "ss.bear", "Mommy <@!728301820539174934>");
+
   manager.addDocument("en", "ss jrern mes?", "ss.bear.jrern");
   manager.addAnswer("en", "ss.bear.jrern", "man orn na");
   manager.addAnswer("en", "ss.bear.jrern", "muk ke saart; somdey ke ban jeng : p");
   manager.addAnswer("en", "ss.bear.jrern", "loy ort?");
   manager.addAnswer("en", "ss.bear.jrern", "jnen man?");
   manager.addAnswer("en", "ss.bear.jrern", "yok klas ort?");
+
+  manager.addDocument("en", "suggest some music", "music.suggest");
+  manager.addDocument("en", "favorite song", "music.suggest");
+  manager.addDocument("en", "song", "music.suggest");
+  manager.addDocument("en", "sad", "music.suggest");
+  manager.addAnswer("en", "music.suggest", "The 1975 - Paris");
+  manager.addAnswer("en", "music.suggest", "Sunday Best");
+  manager.addAnswer("en", "music.suggest", "https://open.spotify.com/playlist/7g4Ivm0GlCl7MVQW0IgP0e?si=9cd9fd51df3c4679");
+
 };

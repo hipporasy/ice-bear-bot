@@ -74,10 +74,10 @@ client.on("guildMemberAdd", (member) => {
   welcomeEmbed.setColor("#5cf000");
   welcomeEmbed.setTitle(
     "**" +
-      member.user.username +
-      "** is now Among Us other **" +
-      member.guild.memberCount +
-      "** people"
+    member.user.username +
+    "** is now Among Us other **" +
+    member.guild.memberCount +
+    "** people"
   );
   welcomeEmbed.setImage(
     "https://cdn.mos.cms.futurecdn.net/93GAa4wm3z4HbenzLbxWeQ-650-80.jpg.webp"
@@ -197,7 +197,6 @@ async function train(jsonData) {
 
 const randomMessage = [
   "Gomen :(",
-  "I love Anbu",
   "Sorry, I don't know what do you mean",
   "Ort deng te",
   "Somtos b",
@@ -210,11 +209,17 @@ const randomMessage = [
   "Boba hei?",
   "Chop tov ah Chuu",
   "chop sl lov ai",
-  "Airplane with pink head",
   "Are you Human",
   "Somvor!",
-  "Slanh kage ort?",
   "mean ss nov?",
+  "oy ta kit tha som",
+  "som sl ban ort",
+  "I need sugar mommy",
+  "I need daddy",
+  "Be my girl friend :(",
+  "I make you coffee after",
+  "Tos date :D",
+  "som ig 1 mok hei?",
 ];
 
 async function handleMessage(e, message) {
@@ -229,7 +234,7 @@ async function handleMessage(e, message) {
     response.score < threshold
       ? `\nMessage : ${message} - response : ${answer}\n`
       : "";
-  fs.appendFile(unmatchedFile, unmatcheResponse, function () {});
+  fs.appendFile(unmatchedFile, unmatcheResponse, function () { });
   e.reply(answer);
   return answer;
 }
